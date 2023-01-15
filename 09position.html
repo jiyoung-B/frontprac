@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS position 관련</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        /* static이라 top, left, right, bottom 속성은 x : position 설정 안해도 디폴트가 static임 */
+        #box1 { width: 150px; height: 150px; background: yellow; left: 1000px; }
+        #box2 { width: 200px; height: 200px; background: red; }
+        /* box3은 box2의 너비 내에 배치 */
+        #box3 { background: greenyellow; border: 1px solid black; line-height: 100px; }
+
+        /* absolute */
+        #box4 { width: 250px; height: 250px; background: violet; top: 50px; left: 50px; position: absolute;}
+        #box5 { width: 250px; height: 250px; background: cyan; bottom: 50px; right: 50px; position: absolute; opacity:0.5; }
+        /* box7은 box6내에서만 움직이도록 position: relative로 설정 */
+        #box6 { width: 250px; height: 250px; background: peachpuff; position: relative;}
+        #box7 { width: 150px; height: 150px; background: gold; position: absolute; top: 50px; left: 50px;}
+
+        /* z-index */
+        #box12 { width: 500px; height: 500px; border: 1px dashed black; position: relative; } /* => 부모박스에 relative를 써줘야 자식박스들이 그 안에서 놀아.*/
+        #box13, #box14, #box15{ width: 200px; height: 200px; position: absolute;}
+        #box13 { background: mediumpurple; top: 50px; left: 50px; z-index: 999;}
+        #box14{ background: orange; top: 100px; left: 100px; z-index: 2;}
+        #box15{ background: skyblue; top: 150px; left: 150px;z-index: 888;}
+
+        /* overflow */
+        #overflow p { width: 150px; height: 150px; border: 1px dashed red; padding: 10px; }
+        #overflow p:first-child { overflow: hidden;}
+        #overflow p:nth-child(2) { overflow: scroll; }
+        #overflow p:last-child { overflow: auto;}
+    </style>
+</head>
+<body>
+<div id="box1">box#1</div>
+
+<div id="box2">
+    <div id="box3">박스2의box#3</div>
+</div>
+
+<div id="box4">box#4</div>
+<div id="box5">box#5</div>
+<div id="box6">
+    <div id="box7">박스6에box#7</div>
+</div>
+
+<div id="box12">box12
+    <div id="box13">1 box13</div>
+    <div id="box14">2 box14</div>
+    <div id="box15">3 box15</div>
+</div>
+<div id="overflow">
+    <p>
+        못하다 발휘하기 거선의 인도하겠다는 그것은 뜨거운지라, 천자만홍이 미묘한 그들은 것이다. 품고 방지하는 천자만홍이 너의 그들의 교향악이다. 그러므로 크고 맺어, 아니더면, 찾아 구하지 청춘이 따뜻한 말이다. 옷을 없으면 산야에 풍부하게 청춘의 고동을 듣기만 뿐이다. 그러므로 사랑의 새가 그들은 굳세게 아니더면, 것은 고동을 약동하다. 것이다.보라, 이것을 쓸쓸한 끓는 남는 꽃 온갖 동산에는 열락의 것이다. 오직 얼음에 이상의 위하여 지혜는 그들은 아니다. 인간은 청춘에서만 찾아 광야에서 과실이 우리 사랑의 그와 그리하였는가? 천자만홍이 생의 인도하겠다는 위하여서, 칼이다. 구하지 예수는 주는 구하기 쓸쓸하랴?
+    </p>
+    <p>
+        못하다 발휘하기 거선의 인도하겠다는 그것은 뜨거운지라, 천자만홍이 미묘한 그들은 것이다. 품고 방지하는 천자만홍이 너의 그들의 교향악이다. 그러므로 크고 맺어, 아니더면, 찾아 구하지 청춘이 따뜻한 말이다. 옷을 없으면 산야에 풍부하게 청춘의 고동을 듣기만 뿐이다. 그러므로 사랑의 새가 그들은 굳세게 아니더면, 것은 고동을 약동하다. 것이다.보라, 이것을 쓸쓸한 끓는 남는 꽃 온갖 동산에는 열락의 것이다. 오직 얼음에 이상의 위하여 지혜는 그들은 아니다. 인간은 청춘에서만 찾아 광야에서 과실이 우리 사랑의 그와 그리하였는가? 천자만홍이 생의 인도하겠다는 위하여서, 칼이다. 구하지 예수는 주는 구하기 쓸쓸하랴?
+    </p>
+    <p>
+        못하다 발휘하기 거선의 인도하겠다는 그것은 뜨거운지라, 천자만홍이 미묘한 그들은 것이다. 품고 방지하는 천자만홍이 너의 그들의 교향악이다. 그러므로 크고 맺어, 아니더면, 찾아 구하지 청춘이 따뜻한 말이다. 옷을 없으면 산야에 풍부하게 청춘의 고동을 듣기만 뿐이다. 그러므로 사랑의 새가 그들은 굳세게 아니더면, 것은 고동을 약동하다. 것이다.보라, 이것을 쓸쓸한 끓는 남는 꽃 온갖 동산에는 열락의 것이다. 오직 얼음에 이상의 위하여 지혜는 그들은 아니다. 인간은 청춘에서만 찾아 광야에서 과실이 우리 사랑의 그와 그리하였는가? 천자만홍이 생의 인도하겠다는 위하여서, 칼이다. 구하지 예수는 주는 구하기 쓸쓸하랴?
+    </p>
+</div>
+</body>
+</html>
